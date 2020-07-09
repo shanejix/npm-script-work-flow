@@ -53,3 +53,16 @@ eslint
 
 ```
 
+# 03
+
+```json
+    "//": "运行所有代码检查和单元测试",
+```
+
+```bash
+    npm test -s[--silent][--loglevel silent]
+```
+
+```bash
+    npm test -d[--verbose][--loglevel verbose]
+```
