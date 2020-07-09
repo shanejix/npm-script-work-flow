@@ -66,3 +66,25 @@ eslint
 ```bash
     npm test -d[--verbose][--loglevel verbose]
 ```
+
+# 04
+
+```bash
+    npm run env
+    npm run env | grep npm_package | sort
+```
+
+```shell
+    "echo":"echo $npm_package_name"
+
+```
+
+```json
+
+    "cover:cleanup": "rm -rf coverage && rm -rf .nyc_output",
+
+    "cover:archive": "mkdir -p coverage_archive/$npm_package_version && cp -r coverage/* coverage_archive/$npm_package_version",
+
+    "postcover": "npm run cover:archive && npm run cover:cleanup && opn coverage_archive/$npm_package_version/index.html",
+    
+```
