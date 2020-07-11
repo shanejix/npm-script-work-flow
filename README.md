@@ -151,3 +151,16 @@ npm i scripty -D
 # npm install scripty --save-dev
 # yarn add scripty -D
 ```
+
+# 07
+
+```bash
+npm i shelljs -D
+# npm install shelljs --save-dev
+# yarn add shelljs -D
+
+
+npm i chalk -D
+# npm install chalk --save-dev
+# yarn add chalk -D
+```
