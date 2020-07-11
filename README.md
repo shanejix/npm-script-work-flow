@@ -143,3 +143,11 @@ npm i cross-env -D
 +    "test": "cross-env NODE_ENV=test mocha tests/",
   },
 ```
+
+# 06
+
+```bash
+npm i scripty -D
+# npm install scripty --save-dev
+# yarn add scripty -D
+```
