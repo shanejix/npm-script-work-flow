@@ -178,3 +178,34 @@ npm i livereload http-server -D
 # npm install livereload http-server --save-dev
 # yarn add livereload http-server -D
 ```
+# 10
+```bash
+npm i husky lint-staged -D
+# npm install husky lint-staged --save-dev
+# yarn add husky lint-staged -D
+```
+```json
+  "scripts": {
+    "test": "jest",
+    "format": "prettier --single-quote --no-semi --write **/*.js",
+    "install": "node ./bin/install.js",
+    "uninstall": "node ./bin/uninstall.js"
+  },
+```
+
+```json
+   "scripts": {
+-    "precommit": "npm run lint",
++    "precommit": "lint-staged",
+     "prepush": "npm run test",
+     "lint": "npm-run-all --parallel lint:*",
+   },
++  "lint-staged": {
++    "*.js": "eslint",
++    "*.less": "stylelint",
++    "*.css": "stylelint",
++    "*.json": "jsonlint --quiet",
++    "*.md": "markdownlint --config .markdownlint.json"
++  },
+   "keywords": [],
+```
