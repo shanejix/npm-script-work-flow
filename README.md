@@ -171,3 +171,10 @@ npm i onchange -D
 # npm install onchange --save-dev
 # yarn add onchange -D
 ```
+
+# 09
+```bash
+npm i livereload http-server -D
+# npm install livereload http-server --save-dev
+# yarn add livereload http-server -D
+```
