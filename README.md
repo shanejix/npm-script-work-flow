@@ -88,3 +88,58 @@ eslint
     "postcover": "npm run cover:archive && npm run cover:cleanup && opn coverage_archive/$npm_package_version/index.html",
     
 ```
+
+# 05
+
+```bash
+
+    npm i rimraf cpr make-dir-cli -D
+```
+
+```json
+
+  "scripts": {
+-    "cover:cleanup": "rm -rf coverage && rm -rf .nyc_output",
+-    "cover:archive": "cross-var \"mkdir -p coverage_archive/$npm_package_version && cp -r coverage/* coverage_archive/$npm_package_version\"",
++    "cover:cleanup": "rimraf coverage && rimraf .nyc_output",
++    "cover:archive": "cross-var \"make-dir coverage_archive/$npm_package_version && cpr coverage/* coverage_archive/$npm_package_version -o\"",
+     "cover:serve": "cross-var http-server coverage_archive/$npm_package_version -p $npm_package_config_port",
+     "cover:open": "cross-var opn http://localhost:$npm_package_config_port",
+-    "postcover": "npm-run-all cover:archive cover:cleanup --parallel cover:serve cover:open"
++    "precover": "npm run cover:cleanup",
++    "postcover": "npm-run-all cover:archive --parallel cover:serve cover:open"
+  },
+```
+
+
+```bash
+    npm i cross-var -D
+    # npm install cross-var --save-dev
+    # yarn add cross-var -D
+```
+```json
+"scripts": {
+     "cover:cleanup": "rm -rf coverage && rm -rf .nyc_output",
+-    "cover:archive": "mkdir -p coverage_archive/$npm_package_version && cp -r coverage/* coverage_archive/$npm_package_version",
+-    "cover:serve": "http-server coverage_archive/$npm_package_version -p $npm_package_config_port",
+-    "cover:open": "opn http://localhost:$npm_package_config_port",
++    "cover:archive": "cross-var \"mkdir -p coverage_archive/$npm_package_version && cp -r coverage/* coverage_archive/$npm_package_version\"",
++    "cover:serve": "cross-var http-server coverage_archive/$npm_package_version -p $npm_package_config_port",
++    "cover:open": "cross-var opn http://localhost:$npm_package_config_port",
+     "postcover": "npm-run-all cover:archive cover:cleanup --parallel cover:serve cover:open"
+   },
+
+```
+
+```bash
+npm i cross-env -D
+# npm install cross-env --save-dev
+# yarn add cross-env -D
+```
+
+```json
+  "scripts": {
+-    "test": "NODE_ENV=test mocha tests/",
++    "test": "cross-env NODE_ENV=test mocha tests/",
+  },
+```
