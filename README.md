@@ -164,3 +164,10 @@ npm i chalk -D
 # npm install chalk --save-dev
 # yarn add chalk -D
 ```
+
+# 08
+```bash
+npm i onchange -D
+# npm install onchange --save-dev
+# yarn add onchange -D
+```
